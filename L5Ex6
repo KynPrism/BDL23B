@@ -1,0 +1,9 @@
+USE db_logistica_exam;
+
+SELECT p.produto_id, p.nome AS nome_produto, p.descricao, p.preco,
+       COALESCE(SUM(CASE WHEN me.tipo_movimentacao = 'Entrada' THEN me.quantidade
+                         WHEN me.tipo_movimentacao = 'Saída' THEN -me.quantidade
+                         ELSE 0 END), 0) + p.estoque AS quantidade_total
+FROM produtos p
+LEFT JOIN movimentacao_estoque me ON p.produto_id = me.produto_id
+GROUP BY p.produto_id, p.nome, p.descricao, p.preco, p.estoque;
