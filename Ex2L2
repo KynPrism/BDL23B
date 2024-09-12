@@ -1,0 +1,5 @@
+USE db_prontuario_exam;
+
+SELECT p.paciente_id, p.nome AS nome_paciente, c.consulta_id, c.data_consulta, c.medico
+FROM pacientes p
+LEFT JOIN consultas c ON p.paciente_id = c.paciente_id;
