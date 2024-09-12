@@ -1,5 +1,0 @@
-USE db_prontuario_exam;
-
-SELECT p.prontuario_id, pa.nome AS nome_paciente, p.medico
-FROM prontuarios p
-INNER JOIN pacientes pa ON p.paciente_id = pa.paciente_id;
