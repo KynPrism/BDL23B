@@ -1,0 +1,5 @@
+USE db_ecommerce_exam;
+
+SELECT ip.item_pedido_id, ip.pedido_id, p.nome AS nome_produto, ip.quantidade, ip.preco_unitario
+FROM itens_pedido ip
+INNER JOIN produtos p ON ip.produto_id = p.produto_id;
