@@ -1,0 +1,6 @@
+USE db_financas_exam;
+
+SELECT t.transacao_id, t.tipo, t.valor, t.data_transacao, t.descricao,
+       c.nome AS nome_conta
+FROM transacoes t
+INNER JOIN contas c ON t.conta_id = c.conta_id;
